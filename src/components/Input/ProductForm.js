@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useRef} from "react";
 import './ProductForm.css'
 function ProductForm(props) {
     const idref = useRef()
@@ -6,28 +6,40 @@ function ProductForm(props) {
     const productPriceref = useRef()
     const productCategoryRef = useRef()
 
-    function addProduct(event){
+
+    
+    
+    function AddProduct(event){
         event.preventDefault()
-        const enteredId = idref.current.value
-        const enteredProductName = productNameref.current.value
-        const enteredProductPrice = productPriceref.current.value
-        const enteredProductCatagory = productCategoryRef.current.value
-        const ProductData = {
-            id: enteredId , 
-            ProName : enteredProductName ,
-            ProPrice : enteredProductPrice ,
-            ProCatagory : enteredProductCatagory
-        }
-        console.log(ProductData)
-        props.onaddproduct(ProductData)
+    const enteredId = Math.random()
+    const enteredProductName = productNameref.current.value
+    const enteredProductPrice = productPriceref.current.value
+    const enteredProductCatagory = productCategoryRef.current.value 
+
+  
+      const ProductData = {
+        id: enteredId , 
+        ProName : enteredProductName ,
+        ProPrice : enteredProductPrice ,
+        ProCatagory : enteredProductCatagory
+    }
+    
+    console.log(ProductData)
+    props.onaddproduct(ProductData)
+        
+        
         idref.current.value=''
         productNameref.current.value=''
         productCategoryRef.current.value=''
         productPriceref.current.value=''
+
+
+
+      
     }
   return (
     <div className={'form-container'}>
-    <form onSubmit={addProduct}>
+    <form onSubmit={AddProduct}>
       <label htmlFor="productId">Product ID</label>
       <input type="number" id="productId" name="productId" step="1" ref={idref}></input>
   
@@ -45,7 +57,7 @@ function ProductForm(props) {
         <option value="skinCareProducts">Skin Care Products</option>
       </select>
   
-      <button type="submit">Add Product</button>
+      <button type="submit" >Add Product</button>
     </form>
   </div> )
 }

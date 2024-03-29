@@ -1,5 +1,5 @@
 import React from "react";
-
+import './ProductList.css'
 function ProductList(props){
    const AllProducts = props.showproducts
    const electronicProducts = []
@@ -27,31 +27,33 @@ FoodItems.push(product)
 
     
 
-return (<div>
-    <div><h3>Electronics Products</h3>
-    <ul>
+return (<div  className={"Product-list"}>
+    <div className="Product-Catagory"><h3>Electronics Products</h3>
+    <ul >
         {electronicProducts.map((product)=>(
-            <li key={product.id}>
+            <li key={product.id} className="product-item">
             {product.ProName} - ${product.ProPrice} - {product.ProCatagory}
-            <button type="button" onClick={() => deleteProduct(product.id)}>DELETE PRODUCT</button>
+            <button type="button" onClick={() => deleteProduct(product.id)}>DELETE</button>
           </li>
         ))}
     </ul>
     </div>
-    <div><h3>Food Items</h3>
+    <div className="Product-Catagory"><h3>Food Items</h3>
     <ul>
         {FoodItems.map((product)=>(
             <li key={product.id}>
-            {product.ProName} - ${product.ProPrice} - {product.ProCatagory} <button type="button">DELETE PRODUCT</button>
+            {product.ProName} - ${product.ProPrice} - {product.ProCatagory} 
+            <button type="button" onClick={() => deleteProduct(product.id)}>DELETE</button>
           </li>
         ))}
     </ul>
     </div>
-    <div><h3>Skin Care Products</h3>
+    <div className="Product-Catagory"><h3>Skin Care Products</h3>
     <ul>
         {Skincare.map((product)=>(
             <li key={product.id}>
-            {product.ProName} - ${product.ProPrice} - {product.ProCatagory} <button type="button">DELETE PRODUCT</button>
+            {product.ProName} - ${product.ProPrice} - {product.ProCatagory} 
+            <button type="button" onClick={() => deleteProduct(product.id)}>DELETE</button>
           </li>
         ))}
     </ul>

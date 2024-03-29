@@ -12,10 +12,10 @@ function App() {
     })
 
   }
-  function deleteProduct(id) {
+  function deleteProduct(id,Catagory) {
     console.log(id)
     setProductList(previousProducts => {
-      return previousProducts.filter(product => product.id !== id);
+      return previousProducts.filter(product => (product.id !== id));
     });
   }
 
